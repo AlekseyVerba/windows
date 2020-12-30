@@ -13,7 +13,6 @@ const babel = require("gulp-babel");
 
 function build() {
     return src([
-        "src/assets/css/style.min.css",
         "src/assets/fonts/**/*",
         "src/js/script.min.js",
         "src/*.html"
@@ -28,18 +27,18 @@ function cleanDist() {
 
 function images() {
     return src("src/assets/img/**/*")
-        .pipe(imagemin([
-            imagemin.gifsicle({interlaced: true}),
-            imagemin.mozjpeg({quality: 75, progressive: true}),
-            imagemin.optipng({optimizationLevel: 5}),
-            imagemin.svgo({
-                plugins: [
-                    {removeViewBox: true},
-                    {cleanupIDs: false}
-                ]
-            })
-        ]))
-        .pipe(dest("dist/img"));
+        // .pipe(imagemin([
+        //     imagemin.gifsicle({interlaced: true}),
+        //     imagemin.mozjpeg({quality: 75, progressive: true}),
+        //     imagemin.optipng({optimizationLevel: 5}),
+        //     imagemin.svgo({
+        //         plugins: [
+        //             {removeViewBox: true},
+        //             {cleanupIDs: false}
+        //         ]
+        //     })
+        // ]))
+        .pipe(dest("dist/assets/img"));
 }
 
 
